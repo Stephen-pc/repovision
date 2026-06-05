@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repovision"
+version = "1.0.0"
+description = "Beautiful git repository analytics at your fingertips. See contribution patterns, code hotspots, and team insights with a stunning terminal dashboard."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "RepoVision Contributors"}
+]
+keywords = ["git", "analytics", "repository", "visualization", "dashboard", "cli", "developer-tools"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Software Development :: Visualization",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "rich>=13.0.0",
+    "typer>=0.9.0",
+    "gitpython>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Stephen-pc/repovision"
+Repository = "https://github.com/Stephen-pc/repovision"
+Issues = "https://github.com/Stephen-pc/repovision/issues"
+
+[project.scripts]
+repovision = "repovision.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["repovision*"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
