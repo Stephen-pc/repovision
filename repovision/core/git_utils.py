@@ -94,13 +94,19 @@ def run_git(args: list[str], cwd: Optional[Path] = None) -> str:
             ["git"] + args,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             cwd=str(cwd) if cwd else None,
             check=True,
             timeout=30,
         )
-        return result.stdout.strip()
+        stdout = result.stdout
+        if stdout is None:
+            return ""
+        return stdout.strip()
     except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Git command failed: {' '.join(args)}\n{e.stderr}") from e
+        stderr = e.stderr or ""
+        raise RuntimeError(f"Git command failed: {' '.join(args)}\n{stderr}") from e
     except FileNotFoundError:
         raise RuntimeError(
             "Git is not installed or not found in PATH. "
