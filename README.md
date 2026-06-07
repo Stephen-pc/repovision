@@ -14,8 +14,10 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Stephen-pc/repovision/main/screenshots/dashboard.svg" alt="RepoVision Dashboard" width="800">
+  <img src="https://raw.githubusercontent.com/Stephen-pc/repovision/main/screenshots/dashboard.png" alt="RepoVision Dashboard" width="800">
 </p>
+
+> 💡 **Tip:** Run `repovision` in your terminal to see the full interactive dashboard!
 
 ---
 
